@@ -1,0 +1,108 @@
+.serviceOfferingsSection {
+    background-color: var(--color-white);
+    height: auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    overflow-x: visible;
+}
+
+.serviceHeaderContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.darkLogo {
+    height: 90px;
+    width: auto;
+}
+
+.serviceHeaderSecondary {
+    width: 50%;
+}
+
+.serviceCardContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.serviceCardsTopRow, .serviceCardsBottomRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+
+
+.serviceCard {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: auto;
+    width: 300px;
+    max-width: 300px;
+}
+
+.serviceImageContainer {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.serviceImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.serviceCardTextPrimary {
+    color: var(--color-orange);
+}
+
+
+.serviceCTAContainer {
+    margin-top: 120px;
+    height: auto;
+    background-color: var(--color-dark-orange);
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    transform: rotate(3deg);
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.serviceCTAContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+    justify-content: center;
+}
+
+
+.ctaLogo {
+    height: 150px;
+    width: auto;
+}
+
+.CTAPrimary {
+    color: var(--color-white);
+}
+
+.CTAButtonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Right Away Repairs provides best-in-service handyman work for the DMV metro area. Request service today!">
+        <link rel="stylesheet" href="./css/style.css" />
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <title>Right Away Repairs | Best-in-class handyman services. With years of experience serving homeowners and businesses across the DMV, we've built a reputation for quality craftsmanship, honesty, and reliable service.</title>
+    </head>
+    <body>
+        <header class="navbarContainer">
+            <div class="topNavRow wrapper">
+                <div class="topNavRowContent">
+                    <div class="topNavTag">
+                        <img src="./assets/locationIcon.svg" class="topNavIcon"/>
+                        <h4 class="topNavTagText">Serving the Washington, D.C. Metro Area (DMV)</h4>
+                    </div>
+                    <div class="topNavTag">
+                        <img src="./assets/clockIcon.svg" class="topNavIcon"/>
+                        <h4 class="topNavTagText">Monday–Friday, 9 AM–6 PM</h4>
+                    </div>
+                    <div class="topNavTag">
+                        <img src="./assets/mailIcon.svg" class="topNavIcon"/>
+                        <h4 class="topNavTagText">therightawayrepairs@gmail.com</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="middleNavRow wrapper">
+                <div class="middleNavRowContent">
+                    <div class="middleNavLeft">
+                        <img src="./assets/orangeLogo.svg" class="orangeLogo"/>
+                        <div class="navLinks">
+                            <a class="navLink">SERVICE OFFERINGS</a>
+                            <a class="navLink">ABOUT US</a>                        
+                        </div>
+                    </div>
+                    <div class="middleNavRight">
+                        <div class="phoneNumberContainer">
+                            <img src="./assets/orangePhoneIcon.svg" class="orangePhone"/>
+                            <p class="phoneNumber">+1 (202)-670-6479</p>
+                        </div>
+                        <button class="button orangeButton">REQUEST SERVICE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomNavRow wrapper">
+                <div class="bottomNavRowContent">
+                    <h4 class="bottomNavTag">Plumbing</h4>
+                    <h4 class="bottomNavTag">Electrical</h4>
+                    <h4 class="bottomNavTag">Painting</h4>
+                    <h4 class="bottomNavTag">Drywall Repair</h4>
+                    <h4 class="bottomNavTag">Appliance Installation</h4>
+                    <h4 class="bottomNavTag">Roofing</h4>
+                    <h4 class="bottomNavTag">Carpentry</h4>
+                    <h4 class="bottomNavTag">Masonry</h4>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="heroSection">
+                <img src="./assets/heroGraphic.png" class="heroGraphic"/>
+                <div class="heroContent wrapper">
+                <div class="heroLeft">
+                    <div class="heroLeftContent">
+                        <h1 class="heroPrimary">BEST-IN-CLASS HANDYMAN SERVICES FOR THE DMV</h1>
+                        <p class="heroSecondary">With years of experience serving homeowners and businesses, we’ve built a reputation for quality craftsmanship, honesty, and reliable service.
+                        </p>
+                        <div class="buttonContainer">
+                            <button class="button orangeButton">REQUEST SERVICE</button>
+                            <button class="button borderButton">SERVICE OFFERINGS</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="heroRight">
+                    <div class="heroRightContent">
+                        <form id="form" class="consultationBox">
+                            <div class="consultationTopRow">
+                                <h3 class="consultationHeader">NEED A QUICK CONSULTATION<span class="punctuation">?</span></h3>
+                                <p class="reachOut"> Let us reach out to you.</p>
+                            </div>
+                            <div class="consultationMiddleRow">
+                                <div class="formTopRow">
+                                    <div class="formField firstName">
+                                        <h4>First Name</h4>
+                                        <input name="fName" type="text" placeholder="Ex. John" required/>
+                                    </div>
+                                    <div class="formField lastName">
+                                        <h4>Last Name</h4>
+                                        <input name="lName" type="text" placeholder="Ex. Smith" required/>
+                                    </div>
+                                </div>
+                                <div class="formMiddleRow">
+                                    <div class="formField">
+                                        <h4>Email</h4>
+                                        <input name="email" type="email" placeholder="Ex. john.smith@outlook.com" required/>
+                                    </div>
+                                </div>
+                                <div class="formBottomRow">
+                                    <div class="formField">
+                                        <h4>Phone Number</h4>
+                                        <input name="phone" type="tel" placeholder="Ex. (555) 555-555" required/>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="time" id="time"/>
+                            </div>
+                            <div class="consultationBottomRow">
+                                <button type="submit" class="button orangeButton">SUBMIT</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <section class="serviceOfferingsSection wrapper">
+                <div class="serviceHeaderContainer">
+                    <img src="./assets/darkLogo.svg" class="darkLogo" />
+                    <h2 class="serviceHeaderPrimary">QUALITY SERVICE OFFERINGS YOU CAN RELY ON</h2>
+                    <p class="serviceHeaderSecondary">No job is too big or too small. We take pride in doing things the right way the first time — saving you time, money, and stress.</p>
+                    <button class="button orangeButton">REQUEST SERVICE</button>
+                </div>
+                <div class="serviceCardContainer">
+                    <div class="serviceCardsTopRow">
+                        <div class="serviceCard">
+                            <div class="serviceImageContainer">
+                                <img src="./assets/plumbing.png" class="serviceImage"/>
+                            </div>
+                            <div class="serviceCardText">
+                                <h3 class="serviceCardTextPrimary">PLUMBING</h3>
+                                <p class="serviceCardTextSecondary">Reliable pipe repairs, leak fixes, and fixture installations done right the first time.</p>
+                            </div>
+                        </div>
+                        <div class="serviceCard">
+                            <div class="serviceImageContainer">
+                                <img src="./assets/electrical.png" class="serviceImage"/>
+                            </div>
+                            <div class="serviceCardText">
+                                <h3 class="serviceCardTextPrimary">ELECTRICAL</h3>
+                                <p class="serviceCardTextSecondary">Safe wiring, lighting, and outlet upgrades handled by experienced professionals.</p>
+                            </div>
+                        </div>
+                        <div class="serviceCard">
+                            <div class="serviceImageContainer">
+                                <img src="./assets/painting.png" class="serviceImage"/>
+                            </div>
+                            <div class="serviceCardText">
+                                <h3 class="serviceCardTextPrimary">PAINTING</h3>
+                                <p class="serviceCardTextSecondary">Bring new life to your space with smooth, clean, and long-lasting finishes.</p>
+                            </div>
+                        </div>
+                        <div class="serviceCard">
+                            <div class="serviceImageContainer">
+                                <img src="./assets/drywall.png" class="serviceImage"/>
+                            </div>
+                            <div class="serviceCardText">
+                                <h3 class="serviceCardTextPrimary">DRYWALL REPAIR</h3>
+                                <p class="serviceCardTextSecondary">From small holes to full sections, we’ll make your walls look brand new again.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="serviceCardsBottomRow">
+                        <div class="serviceCard">
+                            <div class="serviceImageContainer">
+                                <img src="./assets/appliance.png" class="serviceImage"/>
+                            </div>
+                            <div class="serviceCardText">
+                                <h3 class="serviceCardTextPrimary">APPLIANCE INSTALLATION</h3>
+                                <p class="serviceCardTextSecondary">Quick, secure setup for your home appliances — done with care and precision.</p>
+                            </div>
+                        </div>
+                        <div class="serviceCard">
+                            <div class="serviceImageContainer">
+                                <img src="./assets/roofing.png" class="serviceImage"/>
+                            </div>
+                            <div class="serviceCardText">
+                                <h3 class="serviceCardTextPrimary">ROOFING</h3>
+                                <p class="serviceCardTextSecondary">Durable repairs and replacements to keep your home safe and weatherproof.</p>
+                            </div>
+                        </div>
+                        <div class="serviceCard">
+                            <div class="serviceImageContainer">
+                                <img src="./assets/carpentry.png" class="serviceImage"/>
+                            </div>
+                            <div class="serviceCardText">
+                                <h3 class="serviceCardTextPrimary">CARPENTRY</h3>
+                                <p class="serviceCardTextSecondary">Custom woodwork, trim, and repairs that blend craftsmanship with durability.</p>
+                            </div>
+                        </div>
+                        <div class="serviceCard">
+                            <div class="serviceImageContainer">
+                                <img src="./assets/masonry.png" class="serviceImage"/>
+                            </div>
+                            <div class="serviceCardText">
+                                <h3 class="serviceCardTextPrimary">MASONRY</h3>
+                                <p class="serviceCardTextSecondary">Expert brick, stone, and concrete work built to last and impress.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="serviceCTAContainer wrapper">
+                <div class="serviceCTAContent">
+                    <img src="./assets/ctaLogo.svg" class="ctaLogo"/>
+                    <h2 class="CTAPrimary">LET US TAKE CARE OF YOU, REQUEST A SERVICE TODAY</h2>
+                </div>
+                <div class="CTAButtonContainer">
+                    <button class="button whiteButton">REQUEST SERVICE</button>
+                </div>
+            </section>
+            <section class="aboutUsContainer wrapper">
+                <div class="aboutUsContent">
+                    <h1 class="aboutUsPrimary">WHAT MAKES US THE<span class="orange"> BEST IN THE BUSINESS</span></h1>
+                    <p class="aboutUsBody">Right Away Repairs was founded by Preston Pierce with a simple but powerful mission — to help others and bring honesty back into the construction industry.<br><br>
+
+                        After years of seeing homeowners and businesses overcharged or let down by unreliable service, Preston set out to build a company that puts people first. With a strong background in home repair and renovation, he started Right Away Repairs to provide quality workmanship at fair, transparent prices.<br><br>
+                    
+                        Every job is approached with integrity, skill, and care — because Preston believes that doing the right thing and helping others should always come first.
+                    </p>
+                </div>
+                <div class="aboutUsImageContainer">
+                    <img src="./assets/prestonGraphic.png" class="prestonGraphic"/>
+                </div>
+                
+            </section>
+        </main>
+        <footer class="footer">
+
+            
+        </footer>
+        <script type="text/javascript">
+            (function() {
+                emailjs.init({
+                    publicKey: "XPAngzyyIv97b8WpT"
+                });
+            })();
+
+            document.getElementById('form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Set current timestamp
+                document.getElementById('time').value = new Date().toISOString();
+                
+                const serviceId = 'service_wyqaghn';
+                const templateId = 'template_8k03xr8';
+                
+                emailjs.sendForm(serviceId, templateId, this)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        alert('Thank you! Your consultation request has been submitted successfully.');
+                        document.getElementById('form').reset();
+                    }, function(error) {
+                        console.error('EmailJS Error:', error);
+                        console.error('Service ID:', serviceId);
+                        console.error('Template ID:', templateId);
+                        alert('Sorry, there was an error submitting your request. Please check the console for details or verify your EmailJS service is properly configured.');
+                    });
+            });
+
+            // Navigate all "REQUEST SERVICE" buttons to serviceRequest.html
+            (function() {
+                const allButtons = document.querySelectorAll('button');
+                
+                allButtons.forEach(function(button) {
+                    const buttonText = button.textContent.trim();
+                    
+                    // Only add navigation to "REQUEST SERVICE" buttons (exclude form submit buttons)
+                    if (buttonText === 'REQUEST SERVICE') {
+                        // Set type to button to prevent form submission if inside a form
+                        button.type = 'button';
+                        button.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            window.location.href = 'serviceRequest.html';
+                        });
+                    }
+                });
+
+                // Navigate logo to index.html
+                const logo = document.querySelector('.orangeLogo');
+                if (logo) {
+                    logo.style.cursor = 'pointer';
+                    logo.addEventListener('click', function() {
+                        window.location.href = 'index.html';
+                    });
+                }
+            })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Right Away Repairs provides best-in-service handyman work for the DMV metro area. Request service today!">
+        <link rel="stylesheet" href="./css/style.css" />
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <title>Right Away Repairs | Best-in-class handyman services. With years of experience serving homeowners and businesses across the DMV, we've built a reputation for quality craftsmanship, honesty, and reliable service.</title>
+    </head>
+    <body>
+        <header class="navbarContainer">
+            <div class="topNavRow wrapper">
+                <div class="topNavRowContent">
+                    <div class="topNavTag">
+                        <img src="./assets/locationIcon.svg" class="topNavIcon"/>
+                        <h4 class="topNavTagText">Serving the Washington, D.C. Metro Area (DMV)</h4>
+                    </div>
+                    <div class="topNavTag">
+                        <img src="./assets/clockIcon.svg" class="topNavIcon"/>
+                        <h4 class="topNavTagText">Monday–Friday, 9 AM–6 PM</h4>
+                    </div>
+                    <div class="topNavTag">
+                        <img src="./assets/mailIcon.svg" class="topNavIcon"/>
+                        <h4 class="topNavTagText">therightawayrepairs@gmail.com</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="middleNavRow wrapper">
+                <div class="middleNavRowContent">
+                    <div class="middleNavLeft">
+                        <img src="./assets/orangeLogo.svg" class="orangeLogo"/>
+                        <div class="navLinks">
+                            <a class="navLink">SERVICE OFFERINGS</a>
+                            <a class="navLink">ABOUT US</a>
+                        </div>
+                    </div>
+                    <div class="middleNavRight">
+                        <div class="phoneNumberContainer">
+                            <img src="./assets/orangePhoneIcon.svg" class="orangePhone"/>
+                            <p class="phoneNumber">+1 (615)-926-2719</p>
+                        </div>
+                        <button class="button orangeButton">REQUEST SERVICE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bottomNavRow wrapper">
+                <div class="bottomNavRowContent">
+                    <h4 class="bottomNavTag">Plumbing</h4>
+                    <h4 class="bottomNavTag">Electrical</h4>
+                    <h4 class="bottomNavTag">Painting</h4>
+                    <h4 class="bottomNavTag">Drywall Repair</h4>
+                    <h4 class="bottomNavTag">Appliance Installation</h4>
+                    <h4 class="bottomNavTag">Roofing</h4>
+                    <h4 class="bottomNavTag">Carpentry</h4>
+                    <h4 class="bottomNavTag">Masonry</h4>
+                </div>
+            </div>
+        </header>
+        <main class="serviceRequestContainer wrapper">
+            <div class="serviceRequestHeader">
+                <img src="./assets/darkLogo.svg" class="orangeLogo"/>
+                <h1>REQUEST SERVICE</h1>
+                <p class="serviceRequestSecondary">Submit the following information, and we will reach out to you during business hours.</p>
+            </div>
+            <form id="form" class="serviceRequestContent">
+                <div class="serviceRequestRow">
+                    <div class="serviceRequestDoubleContainer">
+                        <div class="formField firstName">
+                            <h4>First Name</h4>
+                            <input name="fName" type="text" placeholder="Ex. John" required/>
+                        </div>
+                        <div class="formField lastName">
+                            <h4>Last Name</h4>
+                            <input name="lName" type="text" placeholder="Ex. Smith" required/>
+                        </div>
+                    </div>
+                </div>
+                    <div class="serviceRequestRow">
+                        <div class="formField">
+                            <h4>Email</h4>
+                            <input name="email" type="email" placeholder="Ex. john.smith@outlook.com" required/>
+                        </div>
+                    </div>
+                    <div class="serviceRequestRow">
+                        <div class="formField">
+                            <h4>Phone Number</h4>
+                            <input name="phone" type="tel" placeholder="Ex. (555) 555-555" required/>
+                        </div>
+                    </div>
+                    <div class="serviceRequestDoubleContainer">
+                        <div class="formField firstName">
+                            <h4>Address</h4>
+                            <input name="address" type="text" placeholder="Ex. 4532 Abbott Street NW" required/>
+                        </div>
+                        <div class="formField lastName">
+                            <h4>Zip Code</h4>
+                            <input name="zip" type="text" placeholder="Ex. 54231" required/>
+                        </div>
+                    </div>
+                    <div class="serviceRequestRow">
+                        <div class="formField">
+                            <h4>Work Description (Please be as detailed as possible)</h4>
+                            <textarea name= description" type="tel" placeholder="Ex. I want the trim on my bedroom cabinet updated...." required ></textarea>
+                        </div>
+                    </div>
+                    <div class="serviceRequestRow">
+                        <div class="formField">
+                            <h4>Completion Deadline (If applicable)</h4>
+                            <input name="deadline" type="tel" placeholder="November 12th, 2025"/>
+                        </div>
+                    </div>
+                    <input type="hidden" name="time" id="time"/>
+                <div class="consultationBottomRow">
+                    <button type="submit" class="button orangeButton">SUBMIT REQUEST</button>
+                </div>
+            </form>
+            
+        </main>
+
+        <script type="text/javascript">
+            (function() {
+                emailjs.init({
+                    publicKey: "XPAngzyyIv97b8WpT"
+                });
+            })();
+
+            document.getElementById('form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Set current timestamp
+                document.getElementById('time').value = new Date().toISOString();
+                
+                const serviceId = 'service_wyqaghn';
+                const templateId = 'template_53qd9td';
+                
+                emailjs.sendForm(serviceId, templateId, this)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        alert('Thank you! Your consultation request has been submitted successfully.');
+                        document.getElementById('form').reset();
+                    }, function(error) {
+                        console.error('EmailJS Error:', error);
+                        console.error('Service ID:', serviceId);
+                        console.error('Template ID:', templateId);
+                        alert('Sorry, there was an error submitting your request. Please check the console for details or verify your EmailJS service is properly configured.');
+                    });
+            });
+
+            // Navigate all "REQUEST SERVICE" buttons to serviceRequest.html
+            (function() {
+                const allButtons = document.querySelectorAll('button');
+                allButtons.forEach(function(button) {
+                    if (button.textContent.trim() === 'REQUEST SERVICE' && button.type !== 'submit') {
+                        button.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            window.location.href = 'serviceRequest.html';
+                        });
+                    }
+                });
+            })();
+
+            // Navigate logo to index.html
+            (function() {
+                const logo = document.querySelector('.orangeLogo');
+                if (logo) {
+                    logo.style.cursor = 'pointer';
+                    logo.addEventListener('click', function() {
+                        window.location.href = 'index.html';
+                    });
+                }
+            })();
+        </script>
+
+</body>
+</html>

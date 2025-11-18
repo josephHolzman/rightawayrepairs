@@ -1,0 +1,52 @@
+.serviceRequestContainer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    gap: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.serviceRequestContent {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 60%;
+}
+
+.consultationMiddleRow {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.serviceRequestDoubleContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 15px;
+}
+
+.firstName, .lastName {
+    flex: 1;
+}
+
+.consultationBottomRow {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.serviceRequestHeader {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+.serviceRequestSecondary {
+    color: var(--color-text-gray);
+}
+
