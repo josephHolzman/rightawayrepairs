@@ -38,6 +38,7 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 25px;
+    flex-wrap: wrap;
 }
 
 
@@ -89,6 +90,7 @@
     width: 100%;
     gap: 50px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 
@@ -105,4 +107,28 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+
+
+@media screen and (max-width: 480px) {
+    
+    .serviceHeaderSecondary {
+        width: 100%;
+    }
+
+    .ctaLogo {
+        height: 50px;
+    }
+
+    .serviceCTAContent {
+        gap: 25px;
+    }
+
+    .serviceCTAContainer {
+        margin-left: 0px;
+        margin-right: 0px;
+        transform: rotate(0deg);
+        gap: 25px;
+    }
 }

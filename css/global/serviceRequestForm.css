@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 50px;
 }
 
 .serviceRequestContent {
@@ -26,6 +27,7 @@
     flex-direction: row;
     width: 100%;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .firstName, .lastName {
@@ -50,3 +52,18 @@
     color: var(--color-text-gray);
 }
 
+
+
+@media screen and (max-width: 480px) {
+    
+    .serviceRequestContent {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .serviceRequestDoubleContainer {
+
+    }
+}

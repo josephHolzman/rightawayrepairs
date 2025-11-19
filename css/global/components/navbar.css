@@ -112,3 +112,96 @@
 .bottomNavTag, .topNavTagText{
     color: var(--color-white);
 }
+
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
+    .topNavRowContent {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .middleNavLeft {
+        gap: 30px;
+    }
+    
+    .navLinks {
+        gap: 30px;
+    }
+    
+    .middleNavRight {
+        gap: 20px;
+    }
+    
+    .bottomNavRowContent {
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .topNavRow {
+        display: none;
+    }
+    
+    .middleNavRow {
+        height: auto;
+        padding: 15px 0;
+    }
+    
+    .middleNavRowContent {
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .middleNavLeft {
+        gap: 0;
+    }
+    
+    .orangeLogo {
+        height: 60px;
+    }
+    
+    .navLinks {
+        display: none;
+    }
+    
+    .middleNavRight {
+        gap: 15px;
+    }
+    
+    .phoneNumberContainer {
+        display: none;
+    }
+    
+    .bottomNavRow {
+        display: none;
+    }
+    
+    .button {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+/* Small mobile styles */
+@media screen and (max-width: 480px) {
+    .middleNavRow {
+        padding: 10px 0;
+    }
+    
+    .orangeLogo {
+        height: 50px;
+    }
+    
+    .button {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

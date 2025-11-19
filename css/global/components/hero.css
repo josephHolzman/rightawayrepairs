@@ -10,6 +10,7 @@
     height: 100%;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .heroGraphic {
@@ -99,6 +100,7 @@
     flex-direction: row;
     width: 100%;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .firstName, .lastName {
@@ -110,3 +112,30 @@
     justify-content: flex-end;
 }
 
+
+
+
+
+@media screen and (max-width: 480px) {
+    .heroContent {
+        padding-top: 50px;
+        gap: 25px;
+    }
+
+    .heroSection {
+        height: 1000px;
+    }
+
+    .heroLeft {
+        padding-left: 0px;
+    }
+
+    .heroRight {
+        padding-right: 0px;
+    }
+    
+    .consultationBox {
+        max-width: 100%;
+    }
+
+}

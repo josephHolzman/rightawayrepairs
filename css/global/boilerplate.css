@@ -219,15 +219,37 @@
     opacity: 0.8;
   }
 
+  .blueButton {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    border: none;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .blueButton:hover {
+    background-color: #0738CC;
+    opacity: 0.9;
+  }
+
+  .blueButton:active {
+    background-color: #0738CC;
+    opacity: 0.8;
+  }
+
+
   .buttonContainer {
     display: flex;
     flex-direction: row;
     gap: 25px;
+    flex-wrap: wrap;
   }
 
-
-
-
+  .uploadContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
 
   .formField {
     display: flex;
@@ -242,5 +264,19 @@
     padding: 10px;
   }
 
+  .formField input:focus,
+  .formField input:not(:placeholder-shown) {
+    background-color: var(--color-white);
+  }
+
+  textarea:focus,
+  textarea:not(:placeholder-shown) {
+    background-color: var(--color-white);
+  }
+
 
   
+
+  @media screen and (max-width: 480px) {
+
+  }

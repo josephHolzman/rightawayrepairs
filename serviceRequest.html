@@ -37,8 +37,7 @@
                     </div>
                     <div class="middleNavRight">
                         <div class="phoneNumberContainer">
-                            <img src="./assets/orangePhoneIcon.svg" class="orangePhone"/>
-                            <p class="phoneNumber">+1 (615)-926-2719</p>
+                            <img src="./assets/orangePhoneIcon.svg" class="orangePhone"/><p class="phoneNumber">+1 (202)-670-6479                            </p>
                         </div>
                         <button class="button orangeButton">REQUEST SERVICE</button>
                     </div>
@@ -63,7 +62,7 @@
                 <h1>REQUEST SERVICE</h1>
                 <p class="serviceRequestSecondary">Submit the following information, and we will reach out to you during business hours.</p>
             </div>
-            <form id="form" class="serviceRequestContent">
+            <form id="form" class="serviceRequestContent" enctype="multipart/form-data">
                 <div class="serviceRequestRow">
                     <div class="serviceRequestDoubleContainer">
                         <div class="formField firstName">
@@ -100,14 +99,26 @@
                     </div>
                     <div class="serviceRequestRow">
                         <div class="formField">
-                            <h4>Work Description (Please be as detailed as possible)</h4>
-                            <textarea name= description" type="tel" placeholder="Ex. I want the trim on my bedroom cabinet updated...." required ></textarea>
+                            <h4>Work Description</h4>
+                            <textarea name= "description" type="tel" placeholder="Ex. I want the trim on my bedroom cabinet updated...." required ></textarea>
                         </div>
                     </div>
                     <div class="serviceRequestRow">
                         <div class="formField">
                             <h4>Completion Deadline (If applicable)</h4>
                             <input name="deadline" type="tel" placeholder="November 12th, 2025"/>
+                        </div>
+                    </div>
+                    <div class="serviceRequestRow">
+                        <div class="uploadContainer">
+                            <h4>Image Upload (Please upload images that give context)</h4>
+                            <input type="file" id="image" name="image" accept="image/*" multiple style="display: none;">
+                            <button type="button" class="button blueButton" id="uploadButton">UPLOAD</button>
+                            <div id="imagePreview" style="margin-top: 15px; display: none;">
+                                <h5 style="margin-bottom: 10px;">Selected Images:</h5>
+                                <p id="imageCount" style="font-size: 0.85rem; color: var(--color-text-gray); margin-bottom: 10px; display: none;"></p>
+                                <div id="imagePreviewContainer" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+                            </div>
                         </div>
                     </div>
                     <input type="hidden" name="time" id="time"/>
@@ -125,6 +136,275 @@
                 });
             })();
 
+            // Image upload functionality - Local array for previews only, never modifies input.files
+            // EmailJS automatically handles: first image embedded inline (CID), additional images as attachments
+            const imageInput = document.getElementById('image');
+            const uploadButton = document.getElementById('uploadButton');
+            const imagePreview = document.getElementById('imagePreview');
+            const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+            
+            // Local array to track files for preview display only (not for sending)
+            let previewFiles = [];
+
+            uploadButton.addEventListener('click', function() {
+                imageInput.click();
+            });
+
+            // Function to compress image file to under maxSize
+            function compressImage(file, maxSize, callback) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const img = new Image();
+                    
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        let width = img.width;
+                        let height = img.height;
+                        
+                        // Calculate new dimensions if image is very large (max 1920px on longest side)
+                        const maxDimension = 1920;
+                        if (width > maxDimension || height > maxDimension) {
+                            if (width > height) {
+                                height = (height / width) * maxDimension;
+                                width = maxDimension;
+                            } else {
+                                width = (width / height) * maxDimension;
+                                height = maxDimension;
+                            }
+                        }
+                        
+                        canvas.width = width;
+                        canvas.height = height;
+                        
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        
+                        // Try different quality levels until file is under maxSize
+                        let quality = 0.9;
+                        let compressedBlob = null;
+                        
+                        function tryCompress() {
+                            canvas.toBlob(function(blob) {
+                                if (blob && blob.size <= maxSize) {
+                                    // Success - create new File object with compressed data
+                                    const compressedFile = new File([blob], file.name, {
+                                        type: 'image/jpeg',
+                                        lastModified: Date.now()
+                                    });
+                                    callback(compressedFile);
+                                } else if (quality > 0.1) {
+                                    // Reduce quality and try again
+                                    quality -= 0.1;
+                                    tryCompress();
+                                } else {
+                                    // If still too large even at 0.1 quality, resize further
+                                    if (width > 800 || height > 800) {
+                                        width = Math.min(width, 800);
+                                        height = Math.min(height, 800);
+                                        canvas.width = width;
+                                        canvas.height = height;
+                                        ctx.drawImage(img, 0, 0, width, height);
+                                        quality = 0.7;
+                                        tryCompress();
+                                    } else {
+                                        // Last resort - use the smallest we can get
+                                        canvas.toBlob(function(finalBlob) {
+                                            if (finalBlob) {
+                                                const compressedFile = new File([finalBlob], file.name, {
+                                                    type: 'image/jpeg',
+                                                    lastModified: Date.now()
+                                                });
+                                                callback(compressedFile);
+                                            } else {
+                                                callback(file); // Fallback to original
+                                            }
+                                        }, 'image/jpeg', 0.1);
+                                    }
+                                }
+                            }, 'image/jpeg', quality);
+                        }
+                        
+                        tryCompress();
+                    };
+                    
+                    img.onerror = function() {
+                        // If image fails to load, use original file
+                        callback(file);
+                    };
+                    
+                    img.src = e.target.result;
+                };
+                
+                reader.onerror = function() {
+                    // If file read fails, use original file
+                    callback(file);
+                };
+                
+                reader.readAsDataURL(file);
+            }
+
+            // Function to render image previews from local array (read-only, display only)
+            function renderImagePreviews() {
+                if (previewFiles.length === 0) {
+                    imagePreview.style.display = 'none';
+                    document.getElementById('imageCount').style.display = 'none';
+                    return;
+                }
+
+                imagePreview.style.display = 'block';
+                imagePreviewContainer.innerHTML = '';
+                
+                // Display count of images
+                const imageCount = document.getElementById('imageCount');
+                imageCount.textContent = `${previewFiles.length} image${previewFiles.length > 1 ? 's' : ''} selected`;
+                imageCount.style.display = 'block';
+                
+                // Display all images from local array
+                previewFiles.forEach((file, index) => {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const imgContainer = document.createElement('div');
+                        imgContainer.style.position = 'relative';
+                        imgContainer.style.width = '150px';
+                        imgContainer.style.height = '150px';
+                        imgContainer.style.border = '2px solid #ddd';
+                        imgContainer.style.borderRadius = '4px';
+                        imgContainer.style.overflow = 'hidden';
+                        imgContainer.style.marginBottom = '10px';
+                        imgContainer.style.backgroundColor = '#f5f5f5';
+                        
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.style.width = '100%';
+                        img.style.height = '100%';
+                        img.style.objectFit = 'cover';
+                        img.style.display = 'block';
+                        img.alt = file.name;
+                        imgContainer.appendChild(img);
+                        
+                        // Add remove button
+                        const removeBtn = document.createElement('button');
+                        removeBtn.textContent = '×';
+                        removeBtn.type = 'button';
+                        removeBtn.style.position = 'absolute';
+                        removeBtn.style.top = '5px';
+                        removeBtn.style.right = '5px';
+                        removeBtn.style.background = 'rgba(255, 0, 0, 0.8)';
+                        removeBtn.style.color = 'white';
+                        removeBtn.style.border = 'none';
+                        removeBtn.style.borderRadius = '50%';
+                        removeBtn.style.width = '25px';
+                        removeBtn.style.height = '25px';
+                        removeBtn.style.cursor = 'pointer';
+                        removeBtn.style.fontSize = '18px';
+                        removeBtn.style.lineHeight = '1';
+                        removeBtn.style.fontWeight = 'bold';
+                        removeBtn.title = 'Remove this image';
+                        
+                        removeBtn.addEventListener('click', function() {
+                            // Remove from local preview array only
+                            const fileIndex = previewFiles.findIndex(f => 
+                                f.name === file.name && 
+                                f.size === file.size && 
+                                f.lastModified === file.lastModified
+                            );
+                            if (fileIndex > -1) {
+                                previewFiles.splice(fileIndex, 1);
+                                renderImagePreviews();
+                            }
+                        });
+                        
+                        imgContainer.appendChild(removeBtn);
+                        
+                        // Add filename below image
+                        const fileName = document.createElement('div');
+                        fileName.textContent = file.name.length > 20 ? file.name.substring(0, 17) + '...' : file.name;
+                        fileName.style.fontSize = '0.7rem';
+                        fileName.style.color = 'var(--color-text-gray)';
+                        fileName.style.marginTop = '5px';
+                        fileName.style.textAlign = 'center';
+                        fileName.style.wordBreak = 'break-word';
+                        
+                        const imageWrapper = document.createElement('div');
+                        imageWrapper.style.display = 'flex';
+                        imageWrapper.style.flexDirection = 'column';
+                        imageWrapper.style.alignItems = 'center';
+                        imageWrapper.appendChild(imgContainer);
+                        imageWrapper.appendChild(fileName);
+                        
+                        imagePreviewContainer.appendChild(imageWrapper);
+                    };
+                    
+                    reader.onerror = function() {
+                        console.error('Error reading file:', file.name);
+                        const errorDiv = document.createElement('div');
+                        errorDiv.textContent = `Error loading: ${file.name}`;
+                        errorDiv.style.color = 'red';
+                        errorDiv.style.fontSize = '0.8rem';
+                        errorDiv.style.padding = '10px';
+                        imagePreviewContainer.appendChild(errorDiv);
+                    };
+                    
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            imageInput.addEventListener('change', function(e) {
+                const newFiles = Array.from(e.target.files);
+                const maxSize = 2 * 1024 * 1024; // 2MB in bytes
+                const uncompressedFiles = [];
+                const compressedFiles = [];
+                let processingCount = 0;
+                
+                // Process each file
+                newFiles.forEach((file) => {
+                    // Check for duplicates in preview array
+                    const isDuplicate = previewFiles.some(existingFile => 
+                        existingFile.name === file.name && 
+                        existingFile.size === file.size && 
+                        existingFile.lastModified === file.lastModified
+                    );
+                    
+                    if (isDuplicate) {
+                        // Skip duplicate files
+                        return;
+                    }
+                    
+                    // If file exceeds size limit, compress it; otherwise use as-is
+                    if (file.size > maxSize) {
+                        processingCount++;
+                        compressImage(file, maxSize, function(compressedFile) {
+                            compressedFiles.push(compressedFile);
+                            processingCount--;
+                            
+                            // When all compressions are done, add all files and render
+                            if (processingCount === 0) {
+                                const allFiles = uncompressedFiles.concat(compressedFiles);
+                                if (allFiles.length > 0) {
+                                    previewFiles = previewFiles.concat(allFiles);
+                                    renderImagePreviews();
+                                }
+                            }
+                        });
+                    } else {
+                        uncompressedFiles.push(file);
+                    }
+                });
+                
+                // If no files needed compression, add uncompressed files immediately
+                // Otherwise, uncompressed files will be added when compression finishes
+                if (processingCount === 0) {
+                    if (uncompressedFiles.length > 0) {
+                        previewFiles = previewFiles.concat(uncompressedFiles);
+                        renderImagePreviews();
+                    }
+                }
+                
+                // Reset the input value so user can select more files
+                imageInput.value = '';
+            });
+
             document.getElementById('form').addEventListener('submit', function(event) {
                 event.preventDefault();
                 
@@ -133,12 +413,106 @@
                 
                 const serviceId = 'service_wyqaghn';
                 const templateId = 'template_53qd9td';
+                const form = this;
                 
-                emailjs.sendForm(serviceId, templateId, this)
+                // Check if there are files to send
+                if (previewFiles.length === 0) {
+                    // No images, use regular sendForm
+                    emailjs.sendForm(serviceId, templateId, form)
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            alert('Thank you! Your consultation request has been submitted successfully.');
+                            form.reset();
+                            previewFiles = [];
+                            imagePreview.style.display = 'none';
+                            imagePreviewContainer.innerHTML = '';
+                            document.getElementById('imageCount').style.display = 'none';
+                            window.location.href = 'index.html';
+                        }, function(error) {
+                            console.error('EmailJS Error:', error);
+                            alert('Sorry, there was an error submitting your request. Please check the console for details or verify your EmailJS service is properly configured.');
+                        });
+                    return;
+                }
+                
+                // Create FormData from form
+                const formData = new FormData(form);
+                
+                // Remove the original image input from FormData (it's empty)
+                formData.delete('image');
+                
+                // Add all files from preview array to FormData
+                // EmailJS will use the first file for CID embedding, others as attachments
+                previewFiles.forEach((file, index) => {
+                    if (index === 0) {
+                        // First file uses name="image" for CID embedding
+                        formData.append('image', file);
+                    } else {
+                        // Additional files also use name="image" so EmailJS attaches them
+                        formData.append('image', file);
+                    }
+                });
+                
+                // Convert FormData to object for emailjs.send()
+                const templateParams = {};
+                formData.forEach((value, key) => {
+                    if (key === 'image') {
+                        // For file inputs, EmailJS needs the FileList
+                        // We'll handle this differently
+                        if (!templateParams[key]) {
+                            templateParams[key] = value; // First file
+                        }
+                    } else {
+                        templateParams[key] = value;
+                    }
+                });
+                
+                // Create a temporary form element with all files for sendForm
+                const tempForm = document.createElement('form');
+                tempForm.enctype = 'multipart/form-data';
+                
+                // Copy all form fields to temp form
+                Array.from(form.elements).forEach(element => {
+                    if (element.name && element.type !== 'file' && element.type !== 'submit' && element.type !== 'button') {
+                        if (element.tagName === 'TEXTAREA') {
+                            const textarea = document.createElement('textarea');
+                            textarea.name = element.name;
+                            textarea.value = element.value;
+                            tempForm.appendChild(textarea);
+                        } else {
+                            const input = document.createElement('input');
+                            input.type = element.type;
+                            input.name = element.name;
+                            input.value = element.value;
+                            tempForm.appendChild(input);
+                        }
+                    }
+                });
+                
+                // Create a temporary file input with all preview files
+                const tempFileInput = document.createElement('input');
+                tempFileInput.type = 'file';
+                tempFileInput.name = 'image';
+                tempFileInput.multiple = true;
+                
+                // Use DataTransfer to create FileList (only for temp form, not original input)
+                const dt = new DataTransfer();
+                previewFiles.forEach(file => dt.items.add(file));
+                tempFileInput.files = dt.files;
+                tempForm.appendChild(tempFileInput);
+                
+                // Use sendForm with temporary form
+                emailjs.sendForm(serviceId, templateId, tempForm)
                     .then(function(response) {
                         console.log('SUCCESS!', response.status, response.text);
                         alert('Thank you! Your consultation request has been submitted successfully.');
-                        document.getElementById('form').reset();
+                        form.reset();
+                        previewFiles = [];
+                        imagePreview.style.display = 'none';
+                        imagePreviewContainer.innerHTML = '';
+                        document.getElementById('imageCount').style.display = 'none';
+                        // Redirect to homepage
+                        window.location.href = 'index.html';
                     }, function(error) {
                         console.error('EmailJS Error:', error);
                         console.error('Service ID:', serviceId);
