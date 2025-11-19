@@ -21,6 +21,11 @@
 .darkLogo {
     height: 90px;
     width: auto;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .serviceHeaderSecondary {
@@ -95,6 +100,11 @@
 .ctaLogo {
     height: 150px;
     width: auto;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .CTAPrimary {

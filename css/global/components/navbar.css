@@ -65,6 +65,11 @@
 .orangeLogo {
     height: 90px;
     width: auto;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .navLinks {
@@ -116,6 +121,27 @@
     color: var(--color-white);
 }
 
+.topNavTagText {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+/* Override Safari's automatic phone number link styling */
+a[href^="tel:"] {
+    color: var(--color-white) !important;
+    text-decoration: none;
+}
+
+/* Override Safari's automatic phone number detection styling */
+.topNavTagText a,
+.topNavTagText[href],
+.topNavTagText:link,
+.topNavTagText:visited {
+    color: var(--color-white) !important;
+    text-decoration: none;
+}
+
 /* Tablet styles */
 @media screen and (max-width: 1024px) {
     .topNavRowContent {
@@ -161,6 +187,11 @@
     
     .orangeLogo {
         height: 60px;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: auto;
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .navLinks {
@@ -195,6 +226,11 @@
     
     .orangeLogo {
         height: 50px;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: auto;
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .button {
