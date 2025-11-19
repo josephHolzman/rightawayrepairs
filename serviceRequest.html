@@ -24,6 +24,10 @@
                         <img src="./assets/mailIcon.svg" class="topNavIcon"/>
                         <h4 class="topNavTagText">therightawayrepairs@gmail.com</h4>
                     </div>
+                    <div class="topNavTag">
+                        <img src="./assets/whitePhoneIcon.svg" class="topNavIcon"/>
+                        <h4 class="topNavTagText">+1 (202)-670-6479</h4>
+                    </div>
                 </div>
             </div>
             <div class="middleNavRow wrapper">
@@ -37,7 +41,8 @@
                     </div>
                     <div class="middleNavRight">
                         <div class="phoneNumberContainer">
-                            <img src="./assets/orangePhoneIcon.svg" class="orangePhone"/><p class="phoneNumber">+1 (202)-670-6479                            </p>
+                            <img src="./assets/orangePhoneIcon.svg" class="orangePhone"/>
+                            <p class="phoneNumber">+1 (202)-670-6479</p>
                         </div>
                         <button class="button orangeButton">REQUEST SERVICE</button>
                     </div>
@@ -543,6 +548,77 @@
                         window.location.href = 'index.html';
                     });
                 }
+            })();
+
+            // Navigate nav links to index.html with hash for scrolling
+            (function() {
+                const navLinks = document.querySelectorAll('.navLink');
+                
+                navLinks.forEach(function(link) {
+                    link.style.cursor = 'pointer';
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        const linkText = link.textContent.trim();
+                        
+                        if (linkText === 'SERVICE OFFERINGS') {
+                            window.location.href = 'index.html#service-offerings';
+                        } else if (linkText === 'ABOUT US') {
+                            window.location.href = 'index.html#about-us';
+                        }
+                    });
+                });
+            })();
+
+            // Make phone number clickable on mobile
+            (function() {
+                const topNavTagTexts = document.querySelectorAll('.topNavTagText');
+                const phoneNumber = '+1 (202)-670-6479';
+                const cleanPhoneNumber = '+12026706479'; // Remove formatting for tel: link
+                
+                topNavTagTexts.forEach(function(element) {
+                    if (element.textContent.trim() === phoneNumber) {
+                        // Check if mobile device
+                        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+                        
+                        if (isMobile) {
+                            element.style.cursor = 'pointer';
+                            element.style.textDecoration = 'underline';
+                            element.addEventListener('click', function() {
+                                window.location.href = 'tel:' + cleanPhoneNumber;
+                            });
+                        }
+                    }
+                });
+            })();
+
+            // Auto-expand textarea as user types
+            (function() {
+                const textareas = document.querySelectorAll('textarea');
+                
+                textareas.forEach(function(textarea) {
+                    // Set initial height
+                    textarea.style.height = '200px';
+                    
+                    // Auto-resize function
+                    function autoResize() {
+                        // Reset height to get accurate scrollHeight
+                        textarea.style.height = 'auto';
+                        // Set height to scrollHeight, but maintain minimum
+                        const newHeight = Math.max(200, textarea.scrollHeight);
+                        textarea.style.height = newHeight + 'px';
+                    }
+                    
+                    // Expand on input
+                    textarea.addEventListener('input', autoResize);
+                    
+                    // Expand on paste
+                    textarea.addEventListener('paste', function() {
+                        setTimeout(autoResize, 10);
+                    });
+                    
+                    // Initial resize in case there's existing content
+                    autoResize();
+                });
             })();
         </script>
 

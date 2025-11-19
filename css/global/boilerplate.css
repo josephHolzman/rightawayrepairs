@@ -81,7 +81,10 @@
     background-color: var(--color-input-fill);
     border-radius: 5px;
     padding: 10px;
+    min-height: 200px;
     height: 200px;
+    resize: none;
+    overflow-y: hidden;
   }
 
 
@@ -102,6 +105,7 @@
   
   /* MacBook M1 Pro (1440px) */
   @media screen and (max-width: 1440px) {
+
     .wrapper {
       max-width: 1440px;
       padding-left: 30px;
@@ -110,18 +114,29 @@
   }
   
   @media screen and (max-width: 1536px) {
+    :root {
+      font-size: 15px;
+    }
     .wrapper {
       max-width: 1920px;
     }
   }
   
   @media screen and (max-width: 1280px) {  
+    :root {
+      font-size: 15px;
+    }
+    
     .wrapper {
       max-width: 1536px;
     }
   }
   
   @media screen and (max-width: 1024px) {  
+    :root {
+      font-size: 14px;
+    }
+
     .wrapper {
       max-width: 1024px;
       padding-left: 30px;
@@ -130,6 +145,10 @@
   }
   
   @media screen and (max-width: 768px) {
+    :root {
+      font-size: 13px;
+    }
+
     .wrapper {
       max-width: 100%;  
       padding-left: 20px; 

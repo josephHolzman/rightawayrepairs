@@ -14,6 +14,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .topNavRowContent {
@@ -142,10 +145,6 @@
 
 /* Mobile styles */
 @media screen and (max-width: 768px) {
-    .topNavRow {
-        display: none;
-    }
-    
     .middleNavRow {
         height: auto;
         padding: 15px 0;
@@ -204,4 +203,13 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+
+    .topNavRow {
+        height: auto;
+        padding: 15px;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 1040px) {
+    
 }
