@@ -352,6 +352,23 @@
                     }
                 });
             })();
+
+            // Make "SERVICE OFFERINGS" button in hero scroll to service offerings section
+            (function() {
+                const buttons = document.querySelectorAll('.button');
+                
+                buttons.forEach(function(button) {
+                    if (button.textContent.trim() === 'SERVICE OFFERINGS') {
+                        button.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            const section = document.getElementById('service-offerings');
+                            if (section) {
+                                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        });
+                    }
+                });
+            })();
         </script>
     </body>
 </html>
