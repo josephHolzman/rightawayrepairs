@@ -1,0 +1,182 @@
+@layer tokens, base, primitives, components, utilities;
+
+/*
+  Breakpoints (CSS can't read variables in @media, so every media query uses one of these):
+    max-width: 480px   small phones
+    max-width: 640px
+    max-width: 768px   phones / small tablets
+    max-width: 1024px  tablets
+    max-width: 1440px
+    max-width: 1536px
+    min-width: 1537px  above this, type and content width scale with the viewport
+
+  Primitive tokens (--black, --neutral-*, --orange-*, ...) are only used in this file.
+  Everything else uses the semantic tokens below them.
+*/
+
+@layer tokens {
+  :root {
+    /* ---- Color primitives ---- */
+    --black: #000000;
+    --white: #ffffff;
+    --neutral-100: #f5f5f5;
+    --neutral-200: #dddddd;
+    --neutral-500: #767676;
+    --neutral-600: #5b5b5b;
+    --neutral-800: #333333;
+    --orange-300: #ff964b;
+    --orange-500: #d1702a;
+    --orange-600: #b35a1f;
+    --orange-700: #ba4e00;
+    --orange-800: #8f4515;
+    --blue-600: #0953ff;
+    --blue-700: #0738cc;
+    --red-700: #c62828;
+
+    /* ---- Semantic colors ---- */
+    --color-page: var(--white);
+    --color-text-muted: var(--neutral-600);
+    --color-accent-text: var(--orange-600);                /* 4.77:1 on white */
+    --color-accent-text-large: var(--orange-500);          /* 3.46:1 on white: display-size text only */
+
+    --color-action: var(--orange-600);                     /* white text 4.77:1 */
+    --color-action-hover: var(--orange-800);               /* white text 6.93:1 */
+    --color-on-action: var(--white);
+
+    --color-on-dark: var(--white);                         /* text and outlines on the hero photo */
+    --color-on-dark-hover: rgba(255, 255, 255, 0.1);       /* outline button wash */
+    --color-on-dark-active: rgba(255, 255, 255, 0.2);
+
+    --color-topbar: var(--black);
+    --color-on-topbar: var(--white);
+    --color-header: var(--neutral-800);
+    --color-on-header: var(--white);
+    --color-on-header-rule: rgba(255, 255, 255, 0.2);      /* footer divider (decorative) */
+    --color-header-phone: var(--orange-300);
+    --color-band: var(--orange-700);                       /* service-tag bar and CTA band */
+    --color-on-band: var(--white);
+
+    --color-field: var(--neutral-100);
+    --color-field-filled: var(--white);
+    --color-field-border: var(--neutral-500);              /* 4.54:1 on white: the field's only edge */
+    --color-border-subtle: var(--neutral-200);             /* upload thumbnail frame */
+
+    --color-upload: var(--blue-600);
+    --color-upload-hover: var(--blue-700);
+
+    --color-danger: var(--red-700);                        /* white text 5.62:1 */
+    --color-on-danger: var(--white);
+
+    /* ---- Type ---- */
+    --font-body: 'Open Sans', sans-serif;
+    --font-display: 'Odor Mean Chey', serif;
+
+    --text-sm: 0.8rem;    /* labels, bar text, buttons */
+    --text-md: 1rem;
+    --text-lg: 1.3rem;
+    --text-xl: 2rem;
+    --text-2xl: 3rem;
+    --text-input-min: 16px; /* iOS Safari zooms the page when a focused input is under 16px */
+
+    --leading-display: 120%;  /* % (not 1.2) keeps the old 1/64px line-box rounding */
+    --leading-body: 180%;
+
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* ---- Space: 5px scale (the number x 5 = px) ---- */
+    --space-1: 5px;
+    --space-2: 10px;
+    --space-3: 15px;
+    --space-4: 20px;
+    --space-5: 25px;
+    --space-6: 30px;
+    --space-10: 50px;
+    --space-15: 75px;
+    --space-20: 100px;
+    --space-24: 120px;
+
+    /* ---- Shape and sizes ---- */
+    --radius: 5px;
+    --focus-offset: 2px;            /* gap between a custom focus outline and its element */
+    --icon-sm: 15px;
+    --logo-h: 90px;
+    --logo-cta-h: 150px;
+    --founder-photo-w: 400px;
+    --service-media-h: 200px;       /* card photo height up to 1536 */
+    --service-media-ratio: 1.63;    /* card photo above 1536: 326 x 200, the 1440 card */
+    --textarea-min-h: 200px;
+    --field-intrinsic-w: 176px;     /* a text input's natural content width at --text-md (15px root); see .field in primitives.css */
+    --thumb-size: 150px;
+    --thumb-remove: 25px;
+    --hero-inset: 3%;
+    --card-min: 280px;              /* default minimum column width for .grid */
+    --site-header-h: 100px;
+    --service-tags-h: 30px;
+
+    /* ---- Component tokens ---- */
+    --button-pad-y: var(--space-4);
+    --button-pad-x: var(--space-3);
+
+    /* Upload preview: values carried over from the old inline JS styles. Off the type/space scale. */
+    --thumb-radius: 4px;
+    --thumb-remove-glyph: 18px;
+    --thumb-name-size: 0.7rem;
+    --upload-count-size: 0.85rem;
+
+    /* ---- Layout ---- */
+    --gutter: 60px;
+    --content-max: 96rem;           /* = 1440px at the 15px root used from 1025-1536; grows with type above */
+    --measure: 75ch;                /* readable line length for body copy above 1536 */
+    --header-offset: 160px;         /* subtracted from 100svh for the hero height */
+    --hero-min: 560px;
+    --hero-max: 960px;
+
+    /* The CTA band bleeds past each side so its 3deg tilt leaves no gap: 10px up to ~1540, more on wider screens. */
+    --cta-bleed: max(var(--space-2), 0.65vw);
+    /* At <=1024 the pre-refactor container max-width steps still clip the band.
+       Reproduced here to keep the render identical. */
+    --cta-band-max: none;
+  }
+
+  @media screen and (max-width: 1440px) {
+    :root {
+      --gutter: 30px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    :root {
+      --cta-band-max: 1024px;
+      --field-intrinsic-w: 172px;   /* 14px root */
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    :root {
+      --gutter: 20px;
+      --button-pad-y: var(--space-3);
+      --button-pad-x: var(--space-2);
+      --site-header-h: 120px;
+      --cta-band-max: 100%;
+      --field-intrinsic-w: 152px;   /* 13px root */
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    :root {
+      --gutter: 15px;
+      --field-intrinsic-w: 140px;   /* 12px root */
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    :root {
+      --button-pad-y: var(--space-2);
+      --button-pad-x: var(--space-2);
+      --logo-cta-h: 50px;
+      --founder-photo-w: 250px;
+    }
+  }
+}

@@ -3,372 +3,376 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="format-detection" content="telephone=no">
-        <meta name="description" content="Right Away Repairs provides best-in-service handyman work for the DMV metro area. Request service today!">
-        <link rel="stylesheet" href="./css/style.css" />
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-        <title>Right Away Repairs | Best-in-class handyman services. With years of experience serving homeowners and businesses across the DMV, we've built a reputation for quality craftsmanship, honesty, and reliable service.</title>
+        <meta name="description" content="Plumbing, electrical, painting, drywall, carpentry and more across DC, Maryland and Northern Virginia. Call (202) 670-6479 or request service online.">
+        <link rel="canonical" href="https://www.rightawayrepairs.us/">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Right Away Repairs">
+        <meta property="og:title" content="Handyman Services in Washington, DC | Right Away Repairs">
+        <meta property="og:description" content="Plumbing, electrical, painting, drywall, carpentry and more across DC, Maryland and Northern Virginia. Call (202) 670-6479 or request service online.">
+        <meta property="og:url" content="https://www.rightawayrepairs.us/">
+        <meta property="og:image" content="https://www.rightawayrepairs.us/og-image.jpg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="theme-color" content="#333333">
+        <link rel="icon" href="./favicon.ico" sizes="32x32">
+        <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HomeAndConstructionBusiness",
+            "name": "Right Away Repairs",
+            "url": "https://www.rightawayrepairs.us/",
+            "logo": "https://www.rightawayrepairs.us/assets/darkLogo.svg",
+            "image": "https://www.rightawayrepairs.us/og-image.jpg",
+            "telephone": "+1-202-670-6479",
+            "email": "therightawayrepairs@gmail.com",
+            "founder": {
+                "@type": "Person",
+                "name": "Preston Pierce"
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Washington",
+                "addressRegion": "DC",
+                "addressCountry": "US"
+            },
+            "areaServed": ["Washington, DC", "Maryland", "Northern Virginia"],
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                }
+            ],
+            "knowsAbout": ["Plumbing", "Electrical", "Painting", "Drywall Repair", "Appliance Installation", "Roofing", "Carpentry", "Masonry"]
+        }
+        </script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Odor+Mean+Chey&family=Open+Sans:wght@500..700&display=swap">
+        <link rel="stylesheet" href="./css/tokens.css" />
+        <link rel="stylesheet" href="./css/base.css" />
+        <link rel="stylesheet" href="./css/primitives.css" />
+        <link rel="stylesheet" href="./css/components.css" />
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+        <title>Handyman Services in Washington, DC | Right Away Repairs</title>
     </head>
     <body>
-        <header class="navbarContainer">
-            <div class="topNavRow wrapper">
-                <div class="topNavRowContent">
-                    <div class="topNavTag">
-                        <img src="./assets/locationIcon.svg" class="topNavIcon"/>
-                        <h4 class="topNavTagText">Serving the Washington, D.C. Metro Area (DMV)</h4>
+        <a class="skip-link visually-hidden" href="#main">Skip to content</a>
+        <header data-qa="header">
+            <div class="topbar container" data-qa="topbar">
+                <ul class="topbar__content cluster">
+                    <li class="cluster">
+                        <img src="./assets/locationIcon.svg" width="16" height="20" class="icon" alt=""/>
+                        <span class="topbar__text label">Serving the Washington, D.C. Metro Area (DMV)</span>
+                    </li>
+                    <li class="cluster">
+                        <img src="./assets/clockIcon.svg" width="11" height="11" class="icon" alt=""/>
+                        <span class="topbar__text label">Monday–Friday, 9 AM–6 PM</span>
+                    </li>
+                    <li class="cluster">
+                        <img src="./assets/mailIcon.svg" width="13" height="12" class="icon" alt=""/>
+                        <a class="topbar__text label" href="mailto:therightawayrepairs@gmail.com">therightawayrepairs@gmail.com</a>
+                    </li>
+                    <li class="cluster">
+                        <img src="./assets/whitePhoneIcon.svg" width="12" height="12" class="icon" alt=""/>
+                        <a class="topbar__text label" href="tel:+12026706479">(202) 670-6479</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="site-header container">
+                <div class="site-header__content">
+                    <div class="site-header__brand cluster">
+                        <a class="site-header__home" href="./"><img src="./assets/orangeLogo.svg" width="321" height="255" class="site-header__logo" alt="Right Away Repairs"/></a>
+                        <nav class="site-header__links cluster" aria-label="Main">
+                            <a class="site-header__link" href="#service-offerings">Service offerings</a>
+                            <a class="site-header__link" href="#about-us">About us</a>
+                        </nav>
                     </div>
-                    <div class="topNavTag">
-                        <img src="./assets/clockIcon.svg" class="topNavIcon"/>
-                        <h4 class="topNavTagText">Monday–Friday, 9 AM–6 PM</h4>
-                    </div>
-                    <div class="topNavTag">
-                        <img src="./assets/mailIcon.svg" class="topNavIcon"/>
-                        <h4 class="topNavTagText">therightawayrepairs@gmail.com</h4>
-                    </div>
-                    <div class="topNavTag">
-                        <img src="./assets/whitePhoneIcon.svg" class="topNavIcon"/>
-                        <h4 class="topNavTagText">+1 (202)-670-6479</h4>
+                    <div class="site-header__actions cluster">
+                        <div class="site-header__phone cluster">
+                            <img src="./assets/orangePhoneIcon.svg" width="17" height="17" alt=""/>
+                            <a class="site-header__phone-number" href="tel:+12026706479">(202) 670-6479</a>
+                        </div>
+                        <a class="button button--primary" href="serviceRequest.html" data-qa="request-cta">Request service</a>
                     </div>
                 </div>
             </div>
-            <div class="middleNavRow wrapper">
-                <div class="middleNavRowContent">
-                    <div class="middleNavLeft">
-                        <img src="./assets/orangeLogo.svg" class="orangeLogo"/>
-                        <div class="navLinks">
-                            <a class="navLink">SERVICE OFFERINGS</a>
-                            <a class="navLink">ABOUT US</a>                        
-                        </div>
-                    </div>
-                    <div class="middleNavRight">
-                        <div class="phoneNumberContainer">
-                            <img src="./assets/orangePhoneIcon.svg" class="orangePhone"/>
-                            <p class="phoneNumber">+1 (202)-670-6479</p>
-                        </div>
-                        <button class="button orangeButton">REQUEST SERVICE</button>
-                    </div>
-                </div>
-            </div>
-            <div class="bottomNavRow wrapper">
-                <div class="bottomNavRowContent">
-                    <h4 class="bottomNavTag">Plumbing</h4>
-                    <h4 class="bottomNavTag">Electrical</h4>
-                    <h4 class="bottomNavTag">Painting</h4>
-                    <h4 class="bottomNavTag">Drywall Repair</h4>
-                    <h4 class="bottomNavTag">Appliance Installation</h4>
-                    <h4 class="bottomNavTag">Roofing</h4>
-                    <h4 class="bottomNavTag">Carpentry</h4>
-                    <h4 class="bottomNavTag">Masonry</h4>
-                </div>
+            <div class="service-tags container">
+                <ul class="service-tags__list cluster" aria-label="Services we offer">
+                    <li class="service-tags__item label">Plumbing</li>
+                    <li class="service-tags__item label">Electrical</li>
+                    <li class="service-tags__item label">Painting</li>
+                    <li class="service-tags__item label">Drywall Repair</li>
+                    <li class="service-tags__item label">Appliance Installation</li>
+                    <li class="service-tags__item label">Roofing</li>
+                    <li class="service-tags__item label">Carpentry</li>
+                    <li class="service-tags__item label">Masonry</li>
+                </ul>
             </div>
         </header>
-        <main>
-            <section class="heroSection">
-                <img src="./assets/heroGraphic.png" class="heroGraphic"/>
-                <div class="heroContent wrapper">
-                <div class="heroLeft">
-                    <div class="heroLeftContent">
-                        <h1 class="heroPrimary">BEST-IN-CLASS HANDYMAN SERVICES FOR THE DMV</h1>
-                        <p class="heroSecondary">With years of experience serving homeowners and businesses, we’ve built a reputation for quality craftsmanship, honesty, and reliable service.
+        <main id="main">
+            <section class="hero" data-qa="hero">
+                <img src="./assets/img/hero-1440.webp" srcset="./assets/img/hero-1440.webp 1440w" sizes="100vw" width="1440" height="744" class="hero__bg" alt="" fetchpriority="high" decoding="async"/>
+                <div class="hero__content container split" data-qa="hero-content">
+                <div class="hero__intro">
+                    <div class="hero__intro-body stack">
+                        <h1 class="hero__title display-2xl">BEST-IN-CLASS HANDYMAN SERVICES FOR THE DMV</h1>
+                        <p class="hero__text">With years of experience serving homeowners and businesses across Washington, DC, Maryland and Northern Virginia, we’ve built a reputation for quality craftsmanship, honesty, and reliable service.
                         </p>
-                        <div class="buttonContainer">
-                            <button class="button orangeButton">REQUEST SERVICE</button>
-                            <button class="button borderButton">SERVICE OFFERINGS</button>
+                        <div class="hero__actions cluster">
+                            <a class="button button--primary" href="serviceRequest.html" data-qa="request-cta">Request service</a>
+                            <a class="button button--outline" href="#service-offerings">Service offerings</a>
                         </div>
                     </div>
                 </div>
-                <div class="heroRight">
-                    <div class="heroRightContent">
-                        <form id="form" class="consultationBox">
-                            <div class="consultationTopRow">
-                                <h3 class="consultationHeader">NEED A QUICK CONSULTATION<span class="punctuation">?</span></h3>
-                                <p class="reachOut"> Let us reach out to you.</p>
+                <div class="hero__aside">
+                    <div class="hero__aside-body cluster">
+                        <form id="form" class="consult-form stack" data-qa="hero-form">
+                            <div class="consult-form__intro stack">
+                                <h2 class="consult-form__title display-lg">NEED A QUICK CONSULTATION<span class="consult-form__punct">?</span></h2>
+                                <p class="consult-form__lede"> Let us reach out to you.</p>
+                                <p class="form-note">All fields are required unless marked optional.</p>
                             </div>
-                            <div class="consultationMiddleRow">
-                                <div class="formTopRow">
-                                    <div class="formField firstName">
-                                        <h4>First Name</h4>
-                                        <input name="fName" type="text" placeholder="Ex. John" required/>
+                            <div class="consult-form__fields stack">
+                                <div class="consult-form__pair split">
+                                    <div class="field">
+                                        <label for="fName">First Name</label>
+                                        <input id="fName" name="fName" type="text" autocomplete="given-name" placeholder="Ex. John" required/>
                                     </div>
-                                    <div class="formField lastName">
-                                        <h4>Last Name</h4>
-                                        <input name="lName" type="text" placeholder="Ex. Smith" required/>
-                                    </div>
-                                </div>
-                                <div class="formMiddleRow">
-                                    <div class="formField">
-                                        <h4>Email</h4>
-                                        <input name="email" type="email" placeholder="Ex. john.smith@outlook.com" required/>
+                                    <div class="field">
+                                        <label for="lName">Last Name</label>
+                                        <input id="lName" name="lName" type="text" autocomplete="family-name" placeholder="Ex. Smith" required/>
                                     </div>
                                 </div>
-                                <div class="formBottomRow">
-                                    <div class="formField">
-                                        <h4>Phone Number</h4>
-                                        <input name="phone" type="tel" placeholder="Ex. (555) 555-555" required/>
+                                <div>
+                                    <div class="field">
+                                        <label for="email">Email</label>
+                                        <input id="email" name="email" type="email" autocomplete="email" placeholder="Ex. john.smith@outlook.com" required/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="field">
+                                        <label for="phone">Phone Number</label>
+                                        <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(202) 555-0123" required/>
                                     </div>
                                 </div>
                                 <input type="hidden" name="time" id="time"/>
+                                <div class="visually-hidden" aria-hidden="true">
+                                    <label for="company-website">Company website</label>
+                                    <input id="company-website" name="company_website" tabindex="-1" autocomplete="off"/>
+                                </div>
                             </div>
-                            <div class="consultationBottomRow">
-                                <button type="submit" class="button orangeButton">SUBMIT</button>
+                            <p id="form-error" class="form-error" role="alert" hidden>We couldn't send your request. Please call <a href="tel:+12026706479">(202) 670-6479</a> or email <a href="mailto:therightawayrepairs@gmail.com">therightawayrepairs@gmail.com</a>.</p>
+                            <div class="consult-form__actions cluster">
+                                <button type="submit" class="button button--primary">Submit</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
             </section>
-            <section id="service-offerings" class="serviceOfferingsSection wrapper">
-                <div class="serviceHeaderContainer">
-                    <img src="./assets/darkLogo.svg" class="darkLogo" />
-                    <h2 class="serviceHeaderPrimary">QUALITY SERVICE OFFERINGS YOU CAN RELY ON</h2>
-                    <p class="serviceHeaderSecondary">No job is too big or too small. We take pride in doing things the right way the first time — saving you time, money, and stress.</p>
-                    <button class="button orangeButton">REQUEST SERVICE</button>
+            <section id="service-offerings" class="services container stack">
+                <div class="services__header stack">
+                    <img src="./assets/darkLogo.svg" width="184" height="147" class="services__logo" alt=""/>
+                    <h2 class="display-xl">QUALITY SERVICE OFFERINGS YOU CAN RELY ON</h2>
+                    <p class="services__lede">No job is too big or too small. We take pride in doing things the right way the first time — saving you time, money, and stress.</p>
+                    <a class="button button--primary" href="serviceRequest.html" data-qa="request-cta">Request service</a>
                 </div>
-                <div class="serviceCardContainer">
-                    <div class="serviceCard">
-                        <div class="serviceImageContainer">
-                            <img src="./assets/plumbing.png" class="serviceImage"/>
+                <div class="services__grid grid" data-qa="service-grid">
+                    <div class="service-card stack">
+                        <div class="service-card__media">
+                            <img src="./assets/img/plumbing-276.webp" srcset="./assets/img/plumbing-276.webp 276w" sizes="(min-width: 1025px) 25vw, (min-width: 481px) 50vw, 100vw" width="276" height="197" class="service-card__img" alt="" loading="lazy" decoding="async"/>
                         </div>
-                        <div class="serviceCardText">
-                            <h3 class="serviceCardTextPrimary">PLUMBING</h3>
-                            <p class="serviceCardTextSecondary">Reliable pipe repairs, leak fixes, and fixture installations done right the first time.</p>
-                        </div>
-                    </div>
-                    <div class="serviceCard">
-                        <div class="serviceImageContainer">
-                            <img src="./assets/electrical.png" class="serviceImage"/>
-                        </div>
-                        <div class="serviceCardText">
-                            <h3 class="serviceCardTextPrimary">ELECTRICAL</h3>
-                            <p class="serviceCardTextSecondary">Safe wiring, lighting, and outlet upgrades handled by experienced professionals.</p>
+                        <div>
+                            <h3 class="service-card__title display-lg">PLUMBING</h3>
+                            <p class="service-card__text">Reliable pipe repairs, leak fixes, and fixture installations done right the first time.</p>
                         </div>
                     </div>
-                    <div class="serviceCard">
-                        <div class="serviceImageContainer">
-                            <img src="./assets/painting.png" class="serviceImage"/>
+                    <div class="service-card stack">
+                        <div class="service-card__media">
+                            <img src="./assets/img/electrical-274.webp" srcset="./assets/img/electrical-274.webp 274w" sizes="(min-width: 1025px) 25vw, (min-width: 481px) 50vw, 100vw" width="274" height="197" class="service-card__img" alt="" loading="lazy" decoding="async"/>
                         </div>
-                        <div class="serviceCardText">
-                            <h3 class="serviceCardTextPrimary">PAINTING</h3>
-                            <p class="serviceCardTextSecondary">Bring new life to your space with smooth, clean, and long-lasting finishes.</p>
-                        </div>
-                    </div>
-                    <div class="serviceCard">
-                        <div class="serviceImageContainer">
-                            <img src="./assets/drywall.png" class="serviceImage"/>
-                        </div>
-                        <div class="serviceCardText">
-                            <h3 class="serviceCardTextPrimary">DRYWALL REPAIR</h3>
-                            <p class="serviceCardTextSecondary">From small holes to full sections, we'll make your walls look brand new again.</p>
+                        <div>
+                            <h3 class="service-card__title display-lg">ELECTRICAL</h3>
+                            <p class="service-card__text">Safe wiring, lighting, and outlet upgrades handled by experienced professionals.</p>
                         </div>
                     </div>
-                    <div class="serviceCard">
-                        <div class="serviceImageContainer">
-                            <img src="./assets/appliance.png" class="serviceImage"/>
+                    <div class="service-card stack">
+                        <div class="service-card__media">
+                            <img src="./assets/img/painting-286.webp" srcset="./assets/img/painting-286.webp 286w" sizes="(min-width: 1025px) 25vw, (min-width: 481px) 50vw, 100vw" width="286" height="197" class="service-card__img" alt="" loading="lazy" decoding="async"/>
                         </div>
-                        <div class="serviceCardText">
-                            <h3 class="serviceCardTextPrimary">APPLIANCE INSTALLATION</h3>
-                            <p class="serviceCardTextSecondary">Quick, secure setup for your home appliances — done with care and precision.</p>
-                        </div>
-                    </div>
-                    <div class="serviceCard">
-                        <div class="serviceImageContainer">
-                            <img src="./assets/roofing.png" class="serviceImage"/>
-                        </div>
-                        <div class="serviceCardText">
-                            <h3 class="serviceCardTextPrimary">ROOFING</h3>
-                            <p class="serviceCardTextSecondary">Durable repairs and replacements to keep your home safe and weatherproof.</p>
+                        <div>
+                            <h3 class="service-card__title display-lg">PAINTING</h3>
+                            <p class="service-card__text">Bring new life to your space with smooth, clean, and long-lasting finishes.</p>
                         </div>
                     </div>
-                    <div class="serviceCard">
-                        <div class="serviceImageContainer">
-                            <img src="./assets/carpentry.png" class="serviceImage"/>
+                    <div class="service-card stack">
+                        <div class="service-card__media">
+                            <img src="./assets/img/drywall-301.webp" srcset="./assets/img/drywall-301.webp 301w" sizes="(min-width: 1025px) 25vw, (min-width: 481px) 50vw, 100vw" width="301" height="197" class="service-card__img" alt="" loading="lazy" decoding="async"/>
                         </div>
-                        <div class="serviceCardText">
-                            <h3 class="serviceCardTextPrimary">CARPENTRY</h3>
-                            <p class="serviceCardTextSecondary">Custom woodwork, trim, and repairs that blend craftsmanship with durability.</p>
-                        </div>
-                    </div>
-                    <div class="serviceCard">
-                        <div class="serviceImageContainer">
-                            <img src="./assets/masonry.png" class="serviceImage"/>
-                        </div>
-                        <div class="serviceCardText">
-                            <h3 class="serviceCardTextPrimary">MASONRY</h3>
-                            <p class="serviceCardTextSecondary">Expert brick, stone, and concrete work built to last and impress.</p>
+                        <div>
+                            <h3 class="service-card__title display-lg">DRYWALL REPAIR</h3>
+                            <p class="service-card__text">From small holes to full sections, we'll make your walls look brand new again.</p>
                         </div>
                     </div>
-                </div>
-            </section>
-            <section class="serviceCTAContainer wrapper">
-                <div class="serviceCTAContent">
-                    <img src="./assets/ctaLogo.svg" class="ctaLogo"/>
-                    <h2 class="CTAPrimary">LET US TAKE CARE OF YOU, REQUEST A SERVICE TODAY</h2>
-                </div>
-                <div class="CTAButtonContainer">
-                    <button class="button whiteButton">REQUEST SERVICE</button>
+                    <div class="service-card stack">
+                        <div class="service-card__media">
+                            <img src="./assets/img/appliance-276.webp" srcset="./assets/img/appliance-276.webp 276w" sizes="(min-width: 1025px) 25vw, (min-width: 481px) 50vw, 100vw" width="276" height="198" class="service-card__img" alt="" loading="lazy" decoding="async"/>
+                        </div>
+                        <div>
+                            <h3 class="service-card__title display-lg">APPLIANCE INSTALLATION</h3>
+                            <p class="service-card__text">Quick, secure setup for your home appliances — done with care and precision.</p>
+                        </div>
+                    </div>
+                    <div class="service-card stack">
+                        <div class="service-card__media">
+                            <img src="./assets/img/roofing-274.webp" srcset="./assets/img/roofing-274.webp 274w" sizes="(min-width: 1025px) 25vw, (min-width: 481px) 50vw, 100vw" width="274" height="198" class="service-card__img" alt="" loading="lazy" decoding="async"/>
+                        </div>
+                        <div>
+                            <h3 class="service-card__title display-lg">ROOFING</h3>
+                            <p class="service-card__text">Durable repairs and replacements to keep your home safe and weatherproof.</p>
+                        </div>
+                    </div>
+                    <div class="service-card stack">
+                        <div class="service-card__media">
+                            <img src="./assets/img/carpentry-286.webp" srcset="./assets/img/carpentry-286.webp 286w" sizes="(min-width: 1025px) 25vw, (min-width: 481px) 50vw, 100vw" width="286" height="198" class="service-card__img" alt="" loading="lazy" decoding="async"/>
+                        </div>
+                        <div>
+                            <h3 class="service-card__title display-lg">CARPENTRY</h3>
+                            <p class="service-card__text">Custom woodwork, trim, and repairs that blend craftsmanship with durability.</p>
+                        </div>
+                    </div>
+                    <div class="service-card stack">
+                        <div class="service-card__media">
+                            <img src="./assets/img/masonry-301.webp" srcset="./assets/img/masonry-301.webp 301w" sizes="(min-width: 1025px) 25vw, (min-width: 481px) 50vw, 100vw" width="301" height="198" class="service-card__img" alt="" loading="lazy" decoding="async"/>
+                        </div>
+                        <div>
+                            <h3 class="service-card__title display-lg">MASONRY</h3>
+                            <p class="service-card__text">Expert brick, stone, and concrete work built to last and impress.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
-            <section id="about-us" class="aboutUsContainer wrapper">
-                <div class="aboutUsContent">
-                    <h1 class="aboutUsPrimary">WHAT MAKES US THE<span class="orange"> BEST IN THE BUSINESS</span></h1>
-                    <p class="aboutUsBody">Right Away Repairs was founded by Preston Pierce with a simple but powerful mission — to help others and bring honesty back into the construction industry.<br><br>
+            <section class="cta-band container stack" data-qa="cta-band">
+                <div class="cta-band__content cluster">
+                    <img src="./assets/ctaLogo.svg" width="184" height="147" class="cta-band__logo" alt=""/>
+                    <h2 class="cta-band__title display-xl">LET US TAKE CARE OF YOU, REQUEST A SERVICE TODAY</h2>
+                </div>
+                <div class="cta-band__actions cluster">
+                    <a class="button button--inverse" href="serviceRequest.html" data-qa="request-cta">Request service</a>
+                </div>
+            </section>
+            <section id="about-us" class="about container split">
+                <div class="about__content stack">
+                    <h2 class="display-2xl">WHAT MAKES US THE<span class="about__accent"> BEST IN THE BUSINESS</span></h2>
+                    <p class="about__text" data-qa="about-body">Right Away Repairs was founded by Preston Pierce with a simple but powerful mission — to help others and bring honesty back into the construction industry.<br><br>
 
                         After years of seeing homeowners and businesses overcharged or let down by unreliable service, Preston set out to build a company that puts people first. With a strong background in home repair and renovation, he started Right Away Repairs to provide quality workmanship at fair, transparent prices.<br><br>
                     
                         Every job is approached with integrity, skill, and care — because Preston believes that doing the right thing and helping others should always come first.
                     </p>
                 </div>
-                <div class="aboutUsImageContainer">
-                    <img src="./assets/prestonGraphic.png" class="prestonGraphic"/>
+                <div class="about__media cluster">
+                    <img src="./assets/img/preston-400.webp" srcset="./assets/img/preston-400.webp 400w, ./assets/img/preston-456.webp 456w" sizes="(max-width: 480px) 250px, 400px" width="400" height="390" class="about__photo" alt="Preston Pierce, founder of Right Away Repairs" loading="lazy"/>
                 </div>
-                
+
             </section>
         </main>
-        <footer class="footer">
-            
-            
+        <footer class="site-footer">
+            <div class="site-footer__inner container stack">
+                <div class="site-footer__row split">
+                    <div class="site-footer__brand stack">
+                        <img src="./assets/whiteLogo.svg" width="193" height="158" class="site-footer__logo" alt="Right Away Repairs"/>
+                        <p>Honest, reliable handyman work across the DC metro area.</p>
+                    </div>
+                    <div class="stack">
+                        <h2 class="site-footer__heading label">Contact</h2>
+                        <ul class="site-footer__list stack">
+                            <li><a class="site-footer__link" href="tel:+12026706479">(202) 670-6479</a></li>
+                            <li><a class="site-footer__link" href="mailto:therightawayrepairs@gmail.com">therightawayrepairs@gmail.com</a></li>
+                            <li><p>Monday–Friday, 9 AM–6 PM</p></li>
+                        </ul>
+                    </div>
+                    <div class="stack">
+                        <h2 class="site-footer__heading label">Service area</h2>
+                        <!-- TODO(client): replace with the real list of towns and neighborhoods served. -->
+                        <p>Washington, DC · Maryland · Northern Virginia</p>
+                    </div>
+                </div>
+                <p class="site-footer__legal">© 2026 Right Away Repairs</p>
+            </div>
         </footer>
-        <script type="text/javascript">
-            (function() {
+        <script>
+            // EmailJS only; nothing else on the page depends on it. The CDN script is deferred and this
+            // inline script runs before it, so window.emailjs is checked at submit time, not at load.
+            const consultForm = document.getElementById('form');
+            const submitButton = consultForm.querySelector('button[type="submit"]');
+            const submitLabel = submitButton.textContent;
+            const formError = document.getElementById('form-error');
+            const honeypot = document.getElementById('company-website');
+            const thanksUrl = 'thank-you.html?form=consult';
+
+            function setSending(sending) {
+                submitButton.disabled = sending;
+                submitButton.textContent = sending ? 'Sending…' : submitLabel;
+                if (sending) {
+                    consultForm.setAttribute('aria-busy', 'true');
+                } else {
+                    consultForm.removeAttribute('aria-busy');
+                }
+            }
+
+            // Going back from the thank-you page can restore this page from the back/forward cache mid-send.
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) setSending(false);
+            });
+
+            consultForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                formError.hidden = true;
+
+                // Spam honeypot: people never see this field, bots fill it in. Act as if it was sent.
+                if (honeypot.value) {
+                    window.location.href = thanksUrl;
+                    return;
+                }
+
+                if (!window.emailjs) {
+                    formError.hidden = false;
+                    return;
+                }
+                setSending(true);
                 emailjs.init({
                     publicKey: "XPAngzyyIv97b8WpT"
                 });
-            })();
 
-            document.getElementById('form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                
                 // Set current timestamp
                 document.getElementById('time').value = new Date().toISOString();
-                
+
                 const serviceId = 'service_wyqaghn';
                 const templateId = 'template_8k03xr8';
-                
-                emailjs.sendForm(serviceId, templateId, this)
+
+                // Send a copy without the honeypot, so company_website never reaches the email template.
+                const payload = consultForm.cloneNode(true);
+                payload.querySelector('[name="company_website"]').remove();
+
+                emailjs.sendForm(serviceId, templateId, payload)
                     .then(function(response) {
                         console.log('SUCCESS!', response.status, response.text);
-                        alert('Thank you! Your consultation request has been submitted successfully.');
-                        document.getElementById('form').reset();
+                        consultForm.reset();
+                        window.location.href = thanksUrl;
                     }, function(error) {
                         console.error('EmailJS Error:', error);
                         console.error('Service ID:', serviceId);
                         console.error('Template ID:', templateId);
-                        alert('Sorry, there was an error submitting your request. Please check the console for details or verify your EmailJS service is properly configured.');
+                        setSending(false);
+                        formError.hidden = false;
+                        // Disabling the focused button drops focus to <body>; give it back.
+                        if (document.activeElement === document.body) submitButton.focus();
                     });
             });
-
-            // Navigate all "REQUEST SERVICE" buttons to serviceRequest.html
-            (function() {
-                const allButtons = document.querySelectorAll('button');
-                
-                allButtons.forEach(function(button) {
-                    const buttonText = button.textContent.trim();
-                    
-                    // Only add navigation to "REQUEST SERVICE" buttons (exclude form submit buttons)
-                    if (buttonText === 'REQUEST SERVICE') {
-                        // Set type to button to prevent form submission if inside a form
-                        button.type = 'button';
-                        button.addEventListener('click', function(event) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                            window.location.href = 'serviceRequest.html';
-                        });
-                    }
-                });
-
-                // Navigate logo to index.html
-                const logo = document.querySelector('.orangeLogo');
-                if (logo) {
-                    logo.style.cursor = 'pointer';
-                    logo.addEventListener('click', function() {
-                        window.location.href = 'index.html';
-                    });
-                }
-            })();
-
-            // Smooth scroll to sections when clicking nav links
-            (function() {
-                const navLinks = document.querySelectorAll('.navLink');
-                
-                navLinks.forEach(function(link) {
-                    link.style.cursor = 'pointer';
-                    link.addEventListener('click', function(event) {
-                        event.preventDefault();
-                        const linkText = link.textContent.trim();
-                        
-                        if (linkText === 'SERVICE OFFERINGS') {
-                            const section = document.getElementById('service-offerings');
-                            if (section) {
-                                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }
-                        } else if (linkText === 'ABOUT US') {
-                            const section = document.getElementById('about-us');
-                            if (section) {
-                                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }
-                        }
-                    });
-                });
-                
-                // Handle hash on page load (for navigation from other pages)
-                window.addEventListener('load', function() {
-                    const hash = window.location.hash;
-                    if (hash === '#service-offerings') {
-                        const section = document.getElementById('service-offerings');
-                        if (section) {
-                            setTimeout(function() {
-                                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }, 100);
-                        }
-                    } else if (hash === '#about-us') {
-                        const section = document.getElementById('about-us');
-                        if (section) {
-                            setTimeout(function() {
-                                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }, 100);
-                        }
-                    }
-                });
-            })();
-
-            // Make phone number clickable on mobile
-            (function() {
-                const topNavTagTexts = document.querySelectorAll('.topNavTagText');
-                const phoneNumber = '+1 (202)-670-6479';
-                const cleanPhoneNumber = '+12026706479'; // Remove formatting for tel: link
-                
-                topNavTagTexts.forEach(function(element) {
-                    if (element.textContent.trim() === phoneNumber) {
-                        // Check if mobile device
-                        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
-                        
-                        if (isMobile) {
-                            element.style.cursor = 'pointer';
-                            element.style.textDecoration = 'underline';
-                            element.addEventListener('click', function() {
-                                window.location.href = 'tel:' + cleanPhoneNumber;
-                            });
-                        }
-                    }
-                });
-            })();
-
-            // Make "SERVICE OFFERINGS" button in hero scroll to service offerings section
-            (function() {
-                const buttons = document.querySelectorAll('.button');
-                
-                buttons.forEach(function(button) {
-                    if (button.textContent.trim() === 'SERVICE OFFERINGS') {
-                        button.addEventListener('click', function(event) {
-                            event.preventDefault();
-                            const section = document.getElementById('service-offerings');
-                            if (section) {
-                                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }
-                        });
-                    }
-                });
-            })();
         </script>
     </body>
 </html>

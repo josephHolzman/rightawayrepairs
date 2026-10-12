@@ -1,0 +1,69 @@
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Root font-size steps: every rem on the site scales with these. */
+  @media screen and (min-width: 1537px) {
+    :root {
+      font-size: clamp(16px, 0.25vw + 12.4px, 19px); /* ~16.2px at 1537, 17.2 at 1920, 18.8 at 2560 */
+    }
+  }
+
+  @media screen and (max-width: 1536px) {
+    :root {
+      font-size: 15px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    :root {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    :root {
+      font-size: 13px;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    :root {
+      font-size: 12px;
+    }
+  }
+
+  /* The rotated CTA band is the only thing that overflows sideways. */
+  main {
+    overflow-x: clip;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Headings take their look from a class (.display-2xl, .display-xl, .display-lg), not their level. */
+
+  p,
+  input,
+  textarea {
+    font-size: var(--text-md);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-body);
+    font-family: var(--font-body);
+  }
+
+  a {
+    font-size: var(--text-md);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-body);
+    font-family: var(--font-body);
+  }
+}

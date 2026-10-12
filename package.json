@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "qa:shots": "node scripts/qa.mjs shots",
+    "qa:diff": "node scripts/qa.mjs diff",
+    "qa:measure": "node scripts/qa.mjs measure",
+    "qa:axe": "node scripts/qa.mjs axe",
+    "qa:cdn": "node scripts/qa.mjs cdn-down",
+    "qa:keys": "node scripts/qa.mjs keys"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "pixelmatch": "^7.2.0",
+    "playwright": "^1.63.0",
+    "png-to-ico": "^3.0.2",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.35.5"
+  }
+}
